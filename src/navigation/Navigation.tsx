@@ -7,7 +7,7 @@ import { BaseLayout } from "../layout/BaseLayout";
 import {
   LOCAL_GENERATE_DATA_KEY,
   LOCAL_SCAN_DATA_KEY,
-} from "../constants/localStorageKeys";
+} from "../constants/LocalStorageKeys";
 
 export default function Navigation() {
   return (

@@ -7,7 +7,7 @@ import {
 } from "@yudiel/react-qr-scanner";
 
 import styles from "./qrCodeScanner.module.css";
-import { LOCAL_SCAN_DATA_KEY } from "../../constants/localStorageKeys";
+import { LOCAL_SCAN_DATA_KEY } from "../../constants/LocalStorageKeys";
 import { Flex, Typography } from "antd";
 
 export const QrCodeScanner = () => {

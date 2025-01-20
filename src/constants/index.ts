@@ -1,2 +1,2 @@
 export * as InterfaceLabels from "./InterfaceLabels";
-export * as LocalStorageKeys from "./localStorageKeys";
+export * as LocalStorageKeys from "./LocalStorageKeys";
