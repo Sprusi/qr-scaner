@@ -12,19 +12,24 @@ import {
 export default function Navigation() {
   return (
     <Routes>
-      <Route element={<BaseLayout />}>
-        <Route path="/generate" element={<QrCodeGenerator />} />
-        <Route
-          path="/generate-history"
-          element={<QrHistory storyKey={LOCAL_GENERATE_DATA_KEY} />}
-        />
-        <Route path="/scan" element={<QrCodeScanner />} />
-        <Route
-          path="/scan-history"
-          element={<QrHistory storyKey={LOCAL_SCAN_DATA_KEY} />}
-        />
+      <Route path="/qr-scaner">
+        <Route element={<BaseLayout />}>
+          <Route path="/generate" element={<QrCodeGenerator />} />
+          <Route
+            path="/generate-history"
+            element={<QrHistory storyKey={LOCAL_GENERATE_DATA_KEY} />}
+          />
+          <Route path="/scan" element={<QrCodeScanner />} />
+          <Route
+            path="/scan-history"
+            element={<QrHistory storyKey={LOCAL_SCAN_DATA_KEY} />}
+          />
+        </Route>
       </Route>
-      <Route path="/" element={<Navigate replace to={"/generate"} />} />
+      <Route
+        path="/"
+        element={<Navigate replace to={"/qr-scaner/generate"} />}
+      />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
