@@ -5,6 +5,7 @@ import { InterfaceLabels } from "../../constants";
 import { LOCAL_GENERATE_DATA_KEY } from "../../constants/LocalStorageKeys";
 import { useLocalStorage } from "../../utils/useLocalStorage";
 import styles from "./qrCodeGenerator.module.css";
+import { handleUrlClick } from "../../utils/utils";
 
 export const QrCodeGenerator = () => {
   const [localHistory, setLocalHistory] = useLocalStorage(
@@ -51,7 +52,13 @@ export const QrCodeGenerator = () => {
             direction="vertical"
             align={"center"}
           >
-            <Typography.Title level={4}>{generageMessage}</Typography.Title>
+            <Typography.Title
+              level={4}
+              className={styles.link}
+              onClick={() => handleUrlClick(generageMessage)}
+            >
+              {generageMessage}
+            </Typography.Title>
             <QRCode value={generageMessage} />
           </Space>
         )}

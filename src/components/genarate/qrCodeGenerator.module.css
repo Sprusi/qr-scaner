@@ -6,3 +6,8 @@
   width: 80vw;
   max-width: 25em !important;
 }
+
+.link {
+  text-decoration: underline;
+  cursor: pointer;
+}

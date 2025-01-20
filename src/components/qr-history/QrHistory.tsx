@@ -3,6 +3,7 @@ import { Button, Empty, Flex, QRCode, Space, Typography } from "antd";
 import { useLocalStorage } from "../../utils/useLocalStorage";
 import { InterfaceLabels } from "../../constants";
 import styles from "./qrHistory.module.css";
+import { handleUrlClick } from "../../utils/utils";
 
 interface QrHistoryProps {
   storyKey: string;
@@ -18,7 +19,13 @@ export const QrHistory: FC<QrHistoryProps> = ({ storyKey }) => {
     data.length ? (
       data.map((el, i) => (
         <Space direction="vertical" align="center" key={`${i}-${el}`}>
-          <Typography.Title level={5}>{el}</Typography.Title>
+          <Typography.Title
+            level={5}
+            className={styles.link}
+            onClick={() => handleUrlClick(el)}
+          >
+            {el}
+          </Typography.Title>
           <QRCode value={el} />
         </Space>
       ))

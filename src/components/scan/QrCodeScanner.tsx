@@ -10,6 +10,7 @@ import styles from "./qrCodeScanner.module.css";
 import { LOCAL_SCAN_DATA_KEY } from "../../constants/LocalStorageKeys";
 import { Flex, Typography } from "antd";
 import { useLocalStorage } from "../../utils/useLocalStorage";
+import { handleUrlClick } from "../../utils/utils";
 
 export const QrCodeScanner = () => {
   const [localHistory, setLocalHistory] = useLocalStorage(LOCAL_SCAN_DATA_KEY);
@@ -17,7 +18,8 @@ export const QrCodeScanner = () => {
 
   const handleScan = (result: IDetectedBarcode[]) => {
     const resultValue = result?.[0]?.rawValue || "";
-    if (localHistory?.length && resultValue === localHistory[0]) return;
+    if (scanned && localHistory?.length && resultValue === localHistory[0])
+      return;
 
     setScanned(resultValue);
     localHistory
@@ -45,7 +47,11 @@ export const QrCodeScanner = () => {
         styles={scannerStyles}
       />
       {scanned && (
-        <Typography.Title level={4} className={styles.result}>
+        <Typography.Title
+          level={4}
+          className={styles.result}
+          onClick={() => handleUrlClick(scanned)}
+        >
           {scanned}
         </Typography.Title>
       )}
