@@ -3,5 +3,6 @@
 }
 
 .input {
-  width: 25em;
+  width: 80vw;
+  max-width: 25em !important;
 }

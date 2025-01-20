@@ -17,7 +17,6 @@ export const NFOUND_GO_TO_HOME_PAGE = "На главную";
 /**
  * QrCodeGenerator
  */
-export const QR_GEN_TITLE = "Генерировать";
 export const QR_GEN_INPUT_PLACEHOLDER = "Введите текст";
 export const QR_GEN_GENERATE_BUTTON = "Сгенерировать Qr";
 export const QR_GEN_GENERATE_ERROR_MESSAGE = "Введите текст";

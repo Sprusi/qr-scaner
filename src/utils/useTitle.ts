@@ -1,11 +1,8 @@
 import { useEffect } from "react";
-import { InterfaceLabels } from "../constants";
 
-export const useTitle = (title: string, isPrefix = true) => {
+export const useTitle = (title: string) => {
   useEffect(() => {
-    const newTitle = !isPrefix
-      ? title
-      : `${title} - ${InterfaceLabels.TITLE_PREFIX}`;
+    const newTitle = title;
     const prevTitle = document.title;
     document.title = newTitle;
     return () => {

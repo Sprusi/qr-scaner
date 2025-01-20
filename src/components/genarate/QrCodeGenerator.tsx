@@ -3,12 +3,10 @@ import TextArea from "antd/es/input/TextArea";
 import { Button, Flex, message, QRCode, Space, Typography } from "antd";
 import { InterfaceLabels } from "../../constants";
 import { LOCAL_GENERATE_DATA_KEY } from "../../constants/LocalStorageKeys";
-import { useTitle } from "../../utils/useTitle";
 import { useLocalStorage } from "../../utils/useLocalStorage";
 import styles from "./qrCodeGenerator.module.css";
 
 export const QrCodeGenerator = () => {
-  useTitle(InterfaceLabels.QR_GEN_TITLE);
   const [localHistory, setLocalHistory] = useLocalStorage(
     LOCAL_GENERATE_DATA_KEY
   );

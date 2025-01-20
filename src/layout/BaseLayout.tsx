@@ -4,6 +4,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { InterfaceLabels } from "../constants";
 import ru_RU from "antd/es/locale/ru_RU";
 import styles from "./baseLayout.module.css";
+import { useTitle } from "../utils/useTitle";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -27,6 +28,7 @@ const items: MenuItem[] = [
 ];
 
 export const BaseLayout = () => {
+  useTitle(InterfaceLabels.TITLE_PREFIX);
   const navigate = useNavigate();
 
   const readingPathNameElements = document.location.pathname?.split("/");
