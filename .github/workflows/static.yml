@@ -17,7 +17,7 @@ permissions:
 
 # Allow one concurrent deployment
 concurrency:
-  group: 'pages'
+  group: 'deploy-pages'
   cancel-in-progress: true
 
 jobs:
@@ -46,7 +46,7 @@ jobs:
         with:
           # Upload dist folder
           path: './dist'
-          name: pages-artifact-${{ github.run_id }}
+          name: github-pages-${{ github.run_id }}
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
