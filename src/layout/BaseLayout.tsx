@@ -38,7 +38,7 @@ export const BaseLayout = () => {
     }
   }, [readingPathName]);
 
-  const onClick: MenuProps["onClick"] = (e) => navigate(e.key);
+  const onClick: MenuProps["onClick"] = (e) => navigate(`/qr-scaner${e.key}`);
 
   return (
     <ConfigProvider locale={ru_RU}>
