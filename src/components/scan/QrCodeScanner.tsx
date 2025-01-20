@@ -9,21 +9,20 @@ import {
 import styles from "./qrCodeScanner.module.css";
 import { LOCAL_SCAN_DATA_KEY } from "../../constants/LocalStorageKeys";
 import { Flex, Typography } from "antd";
+import { useLocalStorage } from "../../utils/useLocalStorage";
 
 export const QrCodeScanner = () => {
+  const [localHistory, setLocalHistory] = useLocalStorage(LOCAL_SCAN_DATA_KEY);
   const [scanned, setScanned] = useState("");
 
   const handleScan = (result: IDetectedBarcode[]) => {
     const resultValue = result?.[0]?.rawValue || "";
-    setScanned(resultValue);
+    if (localHistory?.length && resultValue === localHistory[0]) return;
 
-    const localHistory = JSON.parse(
-      localStorage.getItem(LOCAL_SCAN_DATA_KEY) || "[]"
-    );
-    localStorage.setItem(
-      LOCAL_SCAN_DATA_KEY,
-      JSON.stringify([resultValue, ...localHistory])
-    );
+    setScanned(resultValue);
+    localHistory
+      ? setLocalHistory([resultValue, ...localHistory])
+      : setLocalHistory([resultValue]);
   };
 
   const scannerSettings: IScannerComponents = { audio: false, finder: false };

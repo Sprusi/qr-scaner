@@ -29,7 +29,9 @@ const items: MenuItem[] = [
 export const BaseLayout = () => {
   const navigate = useNavigate();
 
-  const readingPathName = document.location.pathname?.split("/")[1];
+  const readingPathNameElements = document.location.pathname?.split("/");
+  const readingPathName =
+    readingPathNameElements[readingPathNameElements.length - 1];
   const [current, setCurrent] = useState(readingPathName);
 
   useEffect(() => {
