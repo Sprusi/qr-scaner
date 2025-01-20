@@ -25,10 +25,6 @@ export default function Navigation() {
         />
       </Route>
       <Route path="/" element={<Navigate replace to={"/generate"} />} />
-      <Route
-        path="/qr-scaner"
-        element={<Navigate replace to={"/generate"} />}
-      />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

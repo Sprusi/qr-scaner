@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import Navigation from "./navigation/Navigation";
 
 createRoot(document.getElementById("root")!).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/qr-scaner">
     <Navigation />
   </BrowserRouter>
 );
