@@ -9,28 +9,25 @@ import {
   LOCAL_SCAN_DATA_KEY,
 } from "../constants/LocalStorageKeys";
 
-const baseUrl = "qr-scaner";
-
 export default function Navigation() {
   return (
     <Routes>
-      <Route path={`/${baseUrl}`}>
-        <Route element={<BaseLayout />}>
-          <Route path="/generate" element={<QrCodeGenerator />} />
-          <Route
-            path="/generate-history"
-            element={<QrHistory storyKey={LOCAL_GENERATE_DATA_KEY} />}
-          />
-          <Route path="/scan" element={<QrCodeScanner />} />
-          <Route
-            path="/scan-history"
-            element={<QrHistory storyKey={LOCAL_SCAN_DATA_KEY} />}
-          />
-        </Route>
+      <Route element={<BaseLayout />}>
+        <Route path="/generate" element={<QrCodeGenerator />} />
+        <Route
+          path="/generate-history"
+          element={<QrHistory storyKey={LOCAL_GENERATE_DATA_KEY} />}
+        />
+        <Route path="/scan" element={<QrCodeScanner />} />
+        <Route
+          path="/scan-history"
+          element={<QrHistory storyKey={LOCAL_SCAN_DATA_KEY} />}
+        />
       </Route>
+      <Route path="/" element={<Navigate replace to={"/generate"} />} />
       <Route
         path="/qr-scaner"
-        element={<Navigate replace to={`/${baseUrl}/generate`} />}
+        element={<Navigate replace to={"/generate"} />}
       />
       <Route path="*" element={<NotFound />} />
     </Routes>
